@@ -61,7 +61,7 @@ int MarcarConsulta(){
 
     printf("\n-----Médicos-----\n\n");
 
-    if(NumeroMedicos+1 < 2) {
+    if(NumeroMedicos == 0) {
          printf("Não há médicos cadastrados\n");
          printf("Digite 1 para voltar ao menu principal: ");
          scanf("%d", &op);
