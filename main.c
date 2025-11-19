@@ -135,7 +135,6 @@ int MarcarConsulta(){
 
 void listarconsulta (){
 
-    int i;
     system ("cls");
 
     printf("\n-----Consultas-----\n\n");
@@ -146,12 +145,16 @@ void listarconsulta (){
 
     else{
         for (int i = 0;i < NumeroConsultas;i++){
-            printf("Consulta: %d\n",i++);
+            printf("Consulta: %d\n",i+1);
             printf("Paciente: %s\n", listaConsultas[i].paciente.nome);
             printf("Idade: %d\n",listaConsultas[i].paciente.idade);
             printf("Gênero: %c\n",listaConsultas[i].paciente.genero);
             printf("Data: %d/%d\n",listaConsultas[i].dia,listaConsultas[i].mes);
-            printf("Médico(a): %s\n",listaMedicos[i].nome);
+            printf("Confirmada: %c\n",listaConsultas[i].confirmada == 0? 'N' : 'S');
+            printf("Médico(a): %s\n",listaConsultas[i].NomeMedico);
+
+            printf("------------------------------------\n");
+
         }
     }
      printf("\nDigite 1 para voltar ao menu principal: ");
@@ -162,25 +165,66 @@ void listarconsulta (){
 
 int confirmarconsulta(){
 
+    system("cls");
+
+     int naoEncontrado = 1;
+
     if (NumeroConsultas == 0){
         printf("Não há consultas para confirmar!\n");
+
         printf("\nDigite 1 para voltar ao menu principal: ");
-            scanf("%d", &op);
-    return 0;
+        scanf("%d", &op);
+
+        return 0;
+
     }
 
-    else {
-        printf("\n-----Confirmar Consulta-----\n\n");
 
- for (int i = 0; i < NumeroConsultas; i++) {
-        printf("%d - %s  (%d/%d)\nMédico: %s\n",i++,listaConsultas[i].paciente.nome,listaConsultas[i].dia,listaConsultas[i].mes, listaConsultas[i].NomeMedico);
+    printf("\n-----Confirmar Consulta-----\n\n");
 
-}
-        printf("Selecione  a consulta que deseja confirmar:");
+    for (int i = 0; i < NumeroConsultas; i++) {
+
+        if(listaConsultas[i].confirmada == 0){
+
+            printf("%d - %s",i+1,listaConsultas[i].paciente.nome);
+            printf("data: %d/%d - Médico: %s\n", listaConsultas[i].dia,listaConsultas[i].mes, listaConsultas[i].NomeMedico);
+        } else {
+
+            printf("Não há consultas para confirmar!\n");
+
+            printf("\nDigite 1 para voltar ao menu principal: ");
+            scanf("%d", &op);
+
+            return 0;
+
+        }
+
+    }
+
+
+    do{
+
+        printf("Selecione  a consulta que deseja confirmar: ");
         scanf("%d",&op);
-}
+
+        if(op <= NumeroConsultas && op >  0 ){
+            listaConsultas[op-1].confirmada = 1;
+
+            printf("\n-----CONSULTA CONFIRMADA!-----\n\n");
+
+            printf("\nDigite 1 para voltar ao menu principal: ");
+            scanf("%d", &op);
+
+            return 0;
+        }
+
+        printf("\n**NUMERO INVÁLIDO**\n");
+
+    }while(naoEncontrado);
 
 }
+
+
 int main()
 {
     setlocale(LC_ALL,"portuguese");
