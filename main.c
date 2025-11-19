@@ -44,7 +44,7 @@ void CadastrarMedico(){
      printf("\n-----Médico cadastrado: -----\n\n");
 
     printf("- Nome: %s", listaMedicos[NumeroMedicos-1].nome);
-    printf("- Espacialidade: %s", listaMedicos[NumeroMedicos-1].especialidade);
+    printf("- Especialidade: %s", listaMedicos[NumeroMedicos-1].especialidade);
 
     printf("\n\nDigite 1 para voltar ao menu: ");
     scanf("%d", &op);
@@ -127,10 +127,60 @@ int MarcarConsulta(){
 
 
 
+
+
+
+
+}
+
+void listarconsulta (){
+
+    int i;
+    system ("cls");
+
+    printf("\n-----Consultas-----\n\n");
+
+    if (NumeroConsultas == 0){
+        printf("Não há consultas marcadas!\n");
+    }
+
+    else{
+        for (int i = 0;i < NumeroConsultas;i++){
+            printf("Consulta: %d\n",i++);
+            printf("Paciente: %s\n", listaConsultas[i].paciente.nome);
+            printf("Idade: %d\n",listaConsultas[i].paciente.idade);
+            printf("Gênero: %c\n",listaConsultas[i].paciente.genero);
+            printf("Data: %d/%d\n",listaConsultas[i].dia,listaConsultas[i].mes);
+            printf("Médico(a): %s\n",listaMedicos[i].nome);
+        }
+    }
+     printf("\nDigite 1 para voltar ao menu principal: ");
+            scanf("%d", &op);
 }
 
 
 
+int confirmarconsulta(){
+
+    if (NumeroConsultas == 0){
+        printf("Não há consultas para confirmar!\n");
+        printf("\nDigite 1 para voltar ao menu principal: ");
+            scanf("%d", &op);
+    return 0;
+    }
+
+    else {
+        printf("\n-----Confirmar Consulta-----\n\n");
+
+ for (int i = 0; i < NumeroConsultas; i++) {
+        printf("%d - %s  (%d/%d)\nMédico: %s\n",i++,listaConsultas[i].paciente.nome,listaConsultas[i].dia,listaConsultas[i].mes, listaConsultas[i].NomeMedico);
+
+}
+        printf("Selecione  a consulta que deseja confirmar:");
+        scanf("%d",&op);
+}
+
+}
 int main()
 {
     setlocale(LC_ALL,"portuguese");
@@ -176,10 +226,10 @@ int main()
             MarcarConsulta();
             break;
         case 3:
-            printf("Você escolheu: Cadastrar médico\n");
+            listarconsulta();
             break;
         case 4:
-            printf("Você escolheu: Listar consulta\n");
+            confirmarconsulta();
             break;
         case 5:
             printf("Você escolheu: Finalizar\n");
