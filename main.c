@@ -234,10 +234,16 @@ int main()
 
     do{
 
-         printf("-----LOGIN-----\n");
+printf(" ___      _______  _______  ___   __    _ \n");
+printf("|   |    |       ||       ||   | |  |  | |\n");
+printf("|   |    |   _   ||    ___||   | |   |_| |\n");
+printf("|   |    |  | |  ||   | __ |   | |       |\n");
+printf("|   |___ |  |_|  ||   ||  ||   | |  _    |\n");
+printf("|       ||       ||   |_| ||   | | | |   |\n");
+printf("|_______||_______||_______||___| |_|  |__|\n");
 
 
-        printf("Insira seu usuário:");
+        printf("\n\nInsira seu usuário:");
         scanf("%s", usuario);
 
         printf("Insira sua senha:");
@@ -251,7 +257,25 @@ int main()
 
     system("cls");
 
-    printf("-----MENU PRINCIPAL-----"); //desenvolver cada opção
+printf(" _______  ___      ___   __    _  ___   _______  _______  \n");
+printf("|       ||   |    |   | |  |  | ||   | |       ||   _   |\n");
+printf("|       ||   |    |   | |   |_| ||   | |       ||  |_|  |\n");
+printf("|       ||   |    |   | |       ||   | |       ||       |\n");
+printf("|      _||   |___ |   | |  _    ||   | |      _||       |\n");
+printf("|     |_ |       ||   | | | |   ||   | |     |_ |   _   |\n");
+printf("|_______||_______||___| |_|  |__||___| |_______||__| |__|\n");
+printf(" __   __  _______  ______   ___   _______  _______       \n");
+printf("|  |_|  ||       ||      | |   | |       ||   _   |      \n");
+printf("|       ||    ___||  _    ||   | |       ||  |_|  |      \n");
+printf("|       ||   |___ | | |   ||   | |       ||       |      \n");
+printf("|       ||    ___|| |_|   ||   | |      _||       |      \n");
+printf("| ||_|| ||   |___ |       ||   | |     |_ |   _   |      \n");
+printf("|_|   |_||_______||______| |___| |_______||__| |__|      \n");
+
+
+
+
+    printf("\n\n-----MENU PRINCIPAL-----"); //desenvolver cada opção
     printf("\n1 - Cadastrar médico\n");
     printf("2 - Marcar consulta\n");
     printf("3 - Listar consulta\n");
